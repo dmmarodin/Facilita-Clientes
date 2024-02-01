@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  frontend:
+    build: .
+    ports:
+      - "80:80"
+    volumes:
+      - "./frontend:/app"
+  backend:
+    build: .
+    ports:
+      - "3033:3033"
+    volumes:
+      - "./backend:/app"
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: facilita
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:

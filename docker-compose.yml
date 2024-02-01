@@ -13,6 +13,8 @@ services:
             - "3033:80"
         volumes:
             - "./backend:/app"
+        depends_on:
+            - db
         environment:
             # Aativar modo "produção" para uso da build em /dist.
             # No development é gerenciado por nodemon.

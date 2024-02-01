@@ -1,4 +1,4 @@
-import { Pool } from "pg";
+import { Pool, QueryResult } from "pg";
 
 /* DB
 *  Camada de abstração do banco de dados
@@ -10,17 +10,17 @@ import { Pool } from "pg";
 *  reduz legibilidade.
 */
 
-export class DB {
+export default class DB {
     private static instance: DB;
 
-    private pool: Pool;
+    public pool: Pool;
 
     public static getInstance(): DB {
 
         if (!DB.instance)
             DB.instance = new DB();
 
-        return this.instance;
+        return DB.instance;
     }
 
     private constructor() {
@@ -28,8 +28,28 @@ export class DB {
             user: process.env.DB_USER || '',
             host: process.env.DB_HOST || 'localhost',
             database: process.env.DB_DATABASE || 'db',
-            password: process.env.PASSWORD || '',
-            port: Number.parseInt(process.env.PORT || "5432"),
+            password: process.env.DB_PASSWORD || '',
+            port: Number.parseInt(process.env.DB_PORT || "5432"),
         });
+    }
+
+    // Expondo query da pool
+    public async query(sql: string, values?: any[]): Promise<QueryResult<any>> {
+        try {
+            return this.pool.query(sql, values || []);
+        } catch (e: any) {
+            let error = e as Error;
+            throw new DbError(e.message);
+        }
+    }
+
+    public getPool(): Pool {
+        return this.pool;
+    }
+}
+
+export class DbError extends Error {
+    constructor(message: string) {
+        super("Database Error: " + message);
     }
 }

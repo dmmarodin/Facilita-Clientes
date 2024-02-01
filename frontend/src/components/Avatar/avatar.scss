@@ -1,0 +1,14 @@
+@import "../../styles/colors.scss";
+
+.avatar {
+    border-radius: 100%;
+    background-color: $azul;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    overflow: hidden;
+
+    .icon {
+        color: $cinza-claro;
+    }
+}

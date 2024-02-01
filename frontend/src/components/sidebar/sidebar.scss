@@ -1,0 +1,67 @@
+@import "../../styles/colors.scss";
+
+#sidebar {
+    background-color: $branco;
+    height: 100%;
+    padding: 30px;
+
+    .sidebar-logo {
+        padding: 0 20px;
+        margin-bottom: 50px;
+    }
+
+    .user {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 50px;
+
+        .user-name {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .user-role {
+            font-size: 14px;
+        }
+
+        .chevron {
+            color: $neutro-escuro;
+        }
+    }
+
+    nav#sidebar-nav {
+        .title-nav {
+            font-weight: bold;
+            color: $cinza-escuro;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .nav-items .option {
+            padding: 10px;
+
+            .option-icon {
+                color: $cinza-escuro;
+                margin-right: 15px;
+                font-size: 16px;
+                transition: all ease-in 0.2s;
+            }
+
+            &.selected .option-icon,
+            &:hover .option-icon {
+                color: $azul;
+            }
+
+            .option-title {
+                color: $cinza-escuro;
+                font-weight: 500;
+                transition: all ease-in 0.2s;
+            }
+
+            &.selected .option-title,
+            &:hover .option-title {
+                color: $azul;
+            }
+        }
+    }
+}

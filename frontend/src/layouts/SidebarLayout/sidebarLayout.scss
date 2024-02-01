@@ -1,0 +1,14 @@
+@import "../../styles/colors.scss";
+
+#sidebar-layout {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+main {
+    padding: 15px 130px;
+    background-color: $background;
+    width: 100%;
+}

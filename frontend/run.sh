@@ -14,8 +14,8 @@ if [ "$NODE_ENV" = "production" ]; then
 
     # Em ambiente real deveria usar PM2 ou equivalente
     # para gerenciar o processo e erros em execução.
-    node ./dist/index.js
+    node ./server.js
 else
     log "rodando em DESENVOLVIMENTO"
-    npm run dev
+    npm run start
 fi

@@ -5,12 +5,12 @@
 *  'service' realize alterações.
 */
 
-import { ClientListingResponse, ClientService } from "../services/client.service";
+import { ClienteListingResponse, ClienteService } from "../services/cliente.service";
 
-export class ClientController {
+export class ClienteController {
     // Listagem de clientes
-    public static async list(): Promise<ClientListingResponse> {
-        const service = new ClientService();
+    public static async list(): Promise<ClienteListingResponse> {
+        const service = new ClienteService();
         return await service.list();
     }
 }

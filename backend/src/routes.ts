@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { ClientController } from './controllers/client.controller';
+import { ClienteController } from './controllers/cliente.controller';
 
 export const router = Router();
 
@@ -15,6 +15,6 @@ router.get("/", (_, res) => {
 router.get("/clients", async (_, res) => {
     // Não há payload na listagem, mas caso tivessem
     // query strings, seria enviado ao controller
-    const response = await ClientController.list();
+    const response = await ClienteController.list();
     res.send(JSON.stringify(response));
 });

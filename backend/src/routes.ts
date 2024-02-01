@@ -12,9 +12,14 @@ router.get("/", (_, res) => {
     res.redirect("/clients");
 });
 
-router.get("/clients", async (_, res) => {
+router.get("/clientes", async (_, res) => {
     // Não há payload na listagem, mas caso tivessem
     // query strings, seria enviado ao controller
     const response = await ClienteController.list();
+    res.send(JSON.stringify(response));
+});
+
+router.post("/clientes", async (req, res) => {
+    const response = await ClienteController.create(req.body);
     res.send(JSON.stringify(response));
 });

@@ -8,9 +8,8 @@ body {
     background-color: #f9f9f9;
 }
 
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-        monospace;
+* {
+    box-sizing: border-box;
 }
 
 a {
@@ -35,4 +34,17 @@ ul {
 
 li {
     list-style: none;
+}
+
+.relative {
+    position: relative;
+}
+
+button {
+    outline-style: none;
+    border-style: none;
+}
+
+.flex-1 {
+    flex: 1;
 }

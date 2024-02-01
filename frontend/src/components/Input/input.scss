@@ -1,0 +1,63 @@
+@import "../../styles/colors.scss";
+
+.input-group {
+    &.horizontal {
+        display: inline-flex;
+        align-items: center;
+
+        .input-group-title {
+            margin-bottom: 0;
+            margin-right: 10px;
+        }
+    }
+
+    .input-group-title {
+        display: block;
+        color: $cinza-escuro;
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 5px;
+    }
+}
+
+input.input {
+    padding: 12px 20px;
+    outline: none;
+    border: 2px solid $cinza-claro;
+    background-color: #fff;
+    border-radius: 7px;
+    font-size: 14px;
+    transition: all ease-in-out 0.15s;
+    width: 100%;
+
+    &.icon {
+        padding-right: 35px;
+    }
+
+    &::placeholder {
+        font-weight: normal;
+        color: $neutro-escuro;
+    }
+
+    &:focus {
+        border-color: $azul;
+    }
+}
+
+.input-icon {
+    color: $neutro-escuro;
+    transition: all ease-in-out 0.15s;
+
+    &:hover {
+        color: $azul;
+    }
+}
+
+.input-icon-container {
+    position: absolute;
+    padding: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 5px;
+    cursor: pointer;
+}

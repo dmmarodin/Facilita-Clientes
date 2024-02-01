@@ -6,7 +6,7 @@ export default function Nav() {
     return (
         <nav id="sidebar-nav">
             <div className="title-nav">Navegação</div>
-            <ul class="nav-items">
+            <ul className="nav-items">
                 <li>
                     <SidebarNavItem
                         title="Clientes"

@@ -16,10 +16,13 @@ router.get("/clientes", async (_, res) => {
     // Não há payload na listagem, mas caso tivessem
     // query strings, seria enviado ao controller
     const response = await ClienteController.list();
-    res.send(JSON.stringify(response));
+
+    res.status(response.error ? response.error_code : 200)
+        .send(JSON.stringify(response));
 });
 
 router.post("/clientes", async (req, res) => {
     const response = await ClienteController.create(req.body);
-    res.send(JSON.stringify(response));
+    res.status(response.error ? response.error_code : 200)
+        .send(JSON.stringify(response));
 });

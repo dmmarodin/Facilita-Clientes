@@ -25,6 +25,7 @@ export class ClienteController {
             const error = e as Error;
             return {
                 error: true,
+                error_code: 500,
                 message: error.message
             }
         }
@@ -52,6 +53,7 @@ export class ClienteController {
             const error = e as Error;
             return {
                 error: true,
+                error_code: 500,
                 message: error.message
             }
         }

@@ -1,5 +1,6 @@
 import { faCog, faUser } from "@fortawesome/free-solid-svg-icons";
 import SidebarNavItem from "./SidebarNavItem";
+import { toast } from "react-toastify";
 
 export default function Nav() {
     return (
@@ -17,6 +18,7 @@ export default function Nav() {
                         title="Configurações"
                         icon={faCog}
                         path="#"
+                        onClick={() => toast.error("Ainda não implementado!")}
                     />
                 </li>
             </ul>

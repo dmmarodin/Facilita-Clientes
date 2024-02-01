@@ -1,7 +1,7 @@
 
 import { Cliente } from "../models/cliente.model";
 import { ClienteCreationResponse, ClienteListingResponse, ClienteService } from "../services/cliente.service";
-import { ResultObject } from "../types";
+import { ResultObject, error, success } from "../types";
 import { z } from "zod";
 
 /* CONTROLLER
@@ -41,21 +41,19 @@ export class ClienteController {
         });
 
         try {
-            const payload = validator.parse(body) as ClienteCreationPayload;
+            validator.parse(body);
+        } catch (e) {
+            return error(400, "payload inválido");
+        }
 
+        try {
+            const payload = body as ClienteCreationPayload;
             const result = await service.create(payload);
 
-            return {
-                error: false,
-                data: result
-            }
+            return success(result);
         } catch (e) {
-            const error = e as Error;
-            return {
-                error: true,
-                error_code: 500,
-                message: error.message
-            }
+            const err = e as Error;
+            return error(500, err.message);
         }
     }
 }

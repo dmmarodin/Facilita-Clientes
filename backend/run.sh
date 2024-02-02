@@ -7,6 +7,8 @@ function log()
 
 log "Inicializando backend..."
 
+npm install
+
 if [ "$NODE_ENV" = "production" ]; then
     npm run build
 

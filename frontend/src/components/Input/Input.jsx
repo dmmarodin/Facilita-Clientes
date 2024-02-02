@@ -10,6 +10,7 @@ export default function Input({
     placeholder,
     icon,
     horizontal,
+    required,
     type = "text",
     maxWidth = "auto",
     className = "",
@@ -34,6 +35,7 @@ export default function Input({
                     value={value}
                     onChange={(e) => setter && setter(e.target.value)}
                     id={id}
+                    required={required}
                 ></input>
                 {icon && (
                     <div className="input-icon-container">

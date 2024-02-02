@@ -15,4 +15,11 @@ export class ClienteModel {
         if (data.error) throw new Error();
         return data.data;
     }
+
+    static async create(cliente) {
+        const response = await req.post(`/clientes`, cliente);
+        const data = response.data;
+
+        if (data.error) throw new Error();
+    }
 }

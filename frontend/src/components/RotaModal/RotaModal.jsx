@@ -24,10 +24,7 @@ export default function RotaModal({ shown, onClose }) {
 
     return (
         <Modal shown={shown} onClose={onClose} title="Rota Mais Rápida">
-            <p>
-                A rota mais rápida de viagem entre seus clientes possui a
-                seguinte ordem:
-            </p>
+            <p>A rota com a menor distância máxima até seus clientes é:</p>
             <Table
                 rows={clientes}
                 headers={["Nome", "E-mail", "Telefone", "Coordenadas"]}

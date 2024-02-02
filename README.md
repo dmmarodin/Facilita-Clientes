@@ -17,6 +17,8 @@ Screenshots:
 
 ## Docker
 
+> :warning: **Em caso de windows:** caso o git esteja configurado para trocar LF para CRLF e caso não seja possível manter o frontend ou o backend aberto, possivelmente você precisa ajustar os arquivos `frontend/run.sh` e `backend/run.sh` para seren salvos com `LF`. Para isso abra e salve como LF ambos os arquivos, ou configure seu git para aceitar LF.
+
 Caso você tenha Docker, é possível rapidamente rodar os 3 containers (frontend, backend e postgreSQL) através do uso do docker-compose.yml. Certifique-se que o Docker Engine está rodando, clone o repositório, acesse a pasta raíz do projeto e execute o comando abaixo:
 
 ```

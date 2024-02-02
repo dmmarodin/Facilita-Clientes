@@ -17,17 +17,11 @@ export class ClienteController {
         const service = new ClienteService();
         try {
             const result = await service.list();
-            return {
-                error: false,
-                data: result
-            }
-        } catch (e) {
-            const error = e as Error;
-            return {
-                error: true,
-                error_code: 500,
-                message: error.message
-            }
+            return success(result);
+        } catch (_) {
+            return error(
+                500,
+                "Erro interno.");
         }
     }
 
@@ -53,9 +47,8 @@ export class ClienteController {
             const result = await service.create(payload);
 
             return success(result);
-        } catch (e) {
-            const err = e as Error;
-            return error(500, err.message);
+        } catch (_) {
+            return error(500, "Erro Interno");
         }
     }
 }

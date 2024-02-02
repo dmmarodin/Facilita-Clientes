@@ -10,11 +10,14 @@ import { toast } from "react-toastify";
 import Table from "../../components/Table/Table";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CreateClienteModal from "../../components/CreateClienteModal/CreateClienteModal";
+import RotaModal from "../../components/RotaModal/RotaModal";
 
 export default function ClientesPage() {
     const [search, setSearch] = useState("");
     const [clientes, setClientes] = useState([]);
+
     const [showInsertModal, setShowInsertModal] = useState(false);
+    const [showRotaModal, setShowRotaModal] = useState(false);
 
     const init = useCallback(async () => {
         try {
@@ -57,7 +60,12 @@ export default function ClientesPage() {
                 >
                     Cadastrar
                 </Button>
-                <Button className="menta">Gerar Rota</Button>
+                <Button
+                    className="menta"
+                    onClick={() => setShowRotaModal(true)}
+                >
+                    Gerar Rota
+                </Button>
             </form>
             <Table
                 rows={clientes}
@@ -80,6 +88,10 @@ export default function ClientesPage() {
                     refresh();
                     toast.success("Cliente criado com sucesso");
                 }}
+            />
+            <RotaModal
+                shown={showRotaModal}
+                onClose={() => setShowRotaModal(false)}
             />
         </SidebarLayout>
     );

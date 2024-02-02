@@ -1,13 +1,19 @@
 # Facilita Clientes
 
+**Desafio técnico - Facilita Jurídico**
+
 Um app para cadastro e visualização de clientes, com a possibilidade de calcular o menor caminho de viagem entre as localizações dos clientes.
 
-**Desafio técnico - Facilita Jurídico**
+## Design e Figma
+
+Acompanha um mockup da tela principal no [Figma](https://www.figma.com/file/qx9ADUFr6iI3S32vK2JMQV/Facilit%C3%A1?type=design&node-id=0%3A1&mode=design&t=iahrQKg2qkDLoyeZ-1).
+
+Screenshots:
 
 ![Clientes](imgs/img1.png)
 ![Cadastro](imgs/img2.png)
 
-# Rodando Localmente
+# Executando Localmente
 
 ## Docker
 
@@ -45,7 +51,7 @@ Clone o repositório em um terminal e navegue até a pasta frontend, execute `np
 Então, abra outro terminal e acesse backend, novamente execute `npm install` e então
 `npm run dev`.
 
-Garanta que seu postgreSQL esteja rodando, e então importe o `data.sql` localizado na pasta `postgres` do projeto.
+Garanta que seu postgreSQL esteja rodando, crie um database chamado `facilita_douglas` e então importe o `data.sql` localizado na pasta `postgres` do projeto.
 Para acessar seus serviços use as portas listadas abaixo.
 
 # Portas
@@ -75,6 +81,15 @@ O backend foi construido em Typescript com Express. O uso do Typescript aumenta 
 A arquitetura MVCS foi escolhida pois permite separar as regras negociais dos passos de tratamento e validação de dados (payload), que habita o controller. Com isso é mais fácil realizar testes unitarios, pois existe uma separação de responsabilidade, e permite criar mocks focados. Uma alternativa é a validação de dados por middlewares do Express.
 
 O uso do typescript acaba por criar uma série de interface para payloads e para respostas, como é o caso de `ClientCreationPayload` e `ClientCreateResponse`. Apesar de verbosos, eles permitem representar os pacotes de dados na forma de um contrato, facilitando o processo de desenvolvimento.
+
+O postgreSQL possui a database `facilita_douglas`, nomeada desta forma para reduzir a chance de conflito em seu ambiente local.
+
+# Frontend
+
+O frontend foi construido em javascript com React, servido localmente através do servidor de desenvolvimento do do create-react-app. Em produção pode ser executado através do script `server.js`, usando `node ./server.js`.
+A utilização do javascript serve para constratar com o uso do typescript no backend, que não era um requerimento do desafio.
+
+Utiliza SCSS para parametrizar cores e facilitar a legibilidade do css.
 
 # Rota de Menor Distância Entre Clientes
 

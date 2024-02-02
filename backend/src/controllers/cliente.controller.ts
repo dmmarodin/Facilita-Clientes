@@ -37,7 +37,9 @@ export class ClienteController {
         const validator = z.object({
             nome: z.string().max(60),
             email: z.string().email().max(60),
-            telefone: z.string().max(14)
+            telefone: z.string().max(14),
+            coord_x: z.number(),
+            coord_y: z.number()
         });
 
         try {

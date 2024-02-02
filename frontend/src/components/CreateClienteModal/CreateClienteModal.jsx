@@ -38,14 +38,13 @@ export default function CreateClienteModal({ shown, onClose, onSuccess }) {
                 nome,
                 email,
                 telefone,
-                coord_x: coordX,
-                coord_y: coordY,
+                coord_x: parseInt(coordX),
+                coord_y: parseInt(coordY),
             });
+            onSuccess && onSuccess();
         } catch (e) {
             toast.error("Erro ao salvar o cliente");
         }
-
-        onSuccess && onSuccess();
     };
 
     return (

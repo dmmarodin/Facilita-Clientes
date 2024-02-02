@@ -17,9 +17,7 @@ export class ClienteService {
 
     public async create(data: ClienteCreationPayload): Promise<ClienteCreationResponse> {
         const cliente = await ClienteModel.create({
-            nome: data.nome,
-            email: data.email,
-            telefone: data.telefone,
+            ...data
         });
 
         return cliente;

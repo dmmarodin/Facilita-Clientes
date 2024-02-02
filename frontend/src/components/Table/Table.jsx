@@ -13,9 +13,7 @@ export default function Table({ component: Component, rows, headers }) {
                 </thead>
             )}
             <tbody>
-                {rows.map((v, i) => (
-                    <Component key={i} data={v} />
-                ))}
+                {rows && rows.map((v, i) => <Component key={i} data={v} />)}
             </tbody>
         </table>
     );

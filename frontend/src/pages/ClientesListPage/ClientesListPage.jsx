@@ -71,7 +71,7 @@ export default function ClientesPage() {
                 rows={clientes}
                 headers={["Nome", "E-mail", "Telefone", "Coordenadas"]}
                 component={({ data }) => (
-                    <tr key={data.id}>
+                    <tr>
                         <td>{data.nome}</td>
                         <td>{data.email}</td>
                         <td>{data.telefone}</td>

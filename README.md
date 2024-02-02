@@ -65,9 +65,13 @@ Para acessar seus serviços use as portas listadas abaixo.
 
 # Arquitetura
 
+**Os arquivos .env foram colocados no Github para fins de facilitar a usabilidade, mas em casos reais não deveriam ser versionados.**
+
 A estrutura de arquivos é representada por um monorepo, com separação do frontend e do backend em serviços distintos, com sua própria forma de ser hospedada. Essa separação foi realizada para facilitar o escalonamento através de instanciamento e distribuição carga para cada serviço.
 
-A dockerização desses serviços permite facilmente preparar um ambiente provisionado pronto para uso em infraestruturas como AWS, Azure e GCP.
+A dockerização desses serviços permite facilmente preparar um ambiente provisionado pronto para uso em infraestruturas como AWS, Azure, GCP ou Firebase.
+
+No caso de Firebase seria necessário alterar a arquitetura para executar na forma de Cloud Functions.
 
 ## Backend
 

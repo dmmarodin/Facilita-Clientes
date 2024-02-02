@@ -10,17 +10,17 @@ services:
     backend:
         build: ./backend
         ports:
-            - "3033:80"
+            - "3033:3033"
         volumes:
             - "./backend:/app"
         depends_on:
             - db
         environment:
-            # Aativar modo "produção" para uso da build em /dist.
+            # Ativar modo "produção" para uso da build em /dist.
             # No development é gerenciado por nodemon.
             - NODE_ENV=development
     db:
-        image: postgres:latest
+        build: ./postgres
         restart: always
         ports:
             - "5432:5432"
@@ -31,8 +31,3 @@ services:
         restart: always
         ports:
             - 8080:8080
-        volumes:
-            - postgres-data:/var/lib/postgresql/data
-
-volumes:
-    postgres-data:

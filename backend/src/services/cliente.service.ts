@@ -8,8 +8,8 @@ import { Cliente, ClienteModel } from "../models/cliente.model"
 */
 
 export class ClienteService {
-    public async list(): Promise<ClienteListingResponse> {
-        const clientes = await ClienteModel.list();
+    public async list(query?: string): Promise<ClienteListingResponse> {
+        const clientes = await ClienteModel.list(query);
         return {
             clientes
         }

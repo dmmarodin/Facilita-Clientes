@@ -8,8 +8,16 @@ const req = axios.create({
 });
 
 export class ClienteModel {
-    static async list() {
-        const response = await req.get(`/clientes`);
+    static async list(filter) {
+        const params = filter
+            ? {
+                  q: filter,
+              }
+            : {};
+
+        const response = await req.get(`/clientes`, {
+            params,
+        });
         const data = response.data;
 
         if (data.error) throw new Error();

@@ -12,11 +12,12 @@ import { z } from "zod";
 
 
 export class ClienteController {
-    // Listagem de clientes
-    public static async list(): Promise<ResultObject<ClienteListingResponse>> {
+    public static async list(query: object): Promise<ResultObject<ClienteListingResponse>> {
         const service = new ClienteService();
+
         try {
-            const result = await service.list();
+            const q = "q" in query ? query.q as string : "";
+            const result = await service.list(q);
             return success(result);
         } catch (_) {
             return error(

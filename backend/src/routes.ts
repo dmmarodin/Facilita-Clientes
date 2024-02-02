@@ -13,10 +13,8 @@ router.get("/", (_, res) => {
     res.redirect("/clients");
 });
 
-router.get("/clientes", async (_, res) => {
-    // Não há payload na listagem, mas caso tivessem
-    // query strings, seria enviado ao controller
-    const response = await ClienteController.list();
+router.get("/clientes", async (req, res) => {
+    const response = await ClienteController.list(req.query);
 
     res.status(response.error ? response.error_code : 200)
         .send(JSON.stringify(response));

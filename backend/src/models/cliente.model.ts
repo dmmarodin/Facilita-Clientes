@@ -21,7 +21,7 @@ export class ClienteModel {
     public static async create(cliente: Cliente): Promise<Cliente> {
         const db = DB.getInstance();
         const result = await db.query(
-            `INSERT INTO clientes (nome, email, telefone, coord_x, coord_y) VALUES ($1, $2, $3, $4, $5) RETURNING * ORDER BY id ASC`,
+            `INSERT INTO clientes (nome, email, telefone, coord_x, coord_y) VALUES ($1, $2, $3, $4, $5) RETURNING *`,
             [cliente.nome, cliente.email, cliente.telefone, cliente.coord_x, cliente.coord_y]
         );
 

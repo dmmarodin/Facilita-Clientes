@@ -2,11 +2,11 @@ FROM node:20-buster
 
 WORKDIR "/app"
 
-COPY package.json .
-
-RUN npm install
+# Ideal em produção
+# COPY package.json .
+# RUN npm install
 
 COPY . .
 
 
-CMD [ "./run.sh" ]
+ENTRYPOINT [ "/app/run.sh" ]

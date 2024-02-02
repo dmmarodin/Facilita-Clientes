@@ -5,7 +5,7 @@ function log()
     echo -e "[run.sh] $1"
 }
 
-log "Inicializando backend..."
+log "Inicializando BACKEND..."
 
 npm install
 
